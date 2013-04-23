@@ -1,4 +1,4 @@
-organiszation := "io.webcrank"
+organization := "io.webcrank"
 
 name := "webcrank-build"
 
