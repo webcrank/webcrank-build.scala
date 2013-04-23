@@ -4,14 +4,9 @@ import sbt._
 import Keys._
 import com.typesafe.sbt.pgp.PgpKeys._
 
+
 object OssSonatype {
   type Sett = Project.Setting[_]
-
-  case class Developer(id: String, name: String, url: Option[String])
-  case class License(name: String, url: String)
-  object BSD3
-       extends License("BSD-3-Clause", "http://www.opensource.org/licenses/BSD-3-Clause")
-
 
   def settings(site: String, git: String, license: License, devs: Seq[Developer]) = Seq[Sett](
       publishTo <<= version.apply(v => {

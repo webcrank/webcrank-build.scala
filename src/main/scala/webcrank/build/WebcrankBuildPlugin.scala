@@ -8,5 +8,12 @@ object WebcrankBuildPlugin extends Plugin {
   object webcrank {
     val scalac = ScalacOptions.settings
     val sonatype = OssSonatype.settings _
+    val resolvers = Resolvers.settings
+    val standard = StandardProject.settings _
+    val metadata = MetadataGenerator.settings _
+
+    val developer = Developer.apply _
+    val license = License.apply _
+    val licenses = License
   }
 }
