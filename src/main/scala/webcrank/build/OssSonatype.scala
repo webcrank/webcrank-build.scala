@@ -30,14 +30,24 @@ object OssSonatype {
         <connection>scm:{ git }</connection>
       </scm>
       <developers>
-        {
-          <developer>
-          <id>dev.id</id>
-          <name>dev.name</name>
-          dev.url.map(u => <url>{ u }</url>).getOrElse("")
-          </developer>
-        }
+        { devs.map(developer(_)) }
       </developers>
     )
   )
+
+  // FIX failing at xml, not sure how to make the conditional work without the dupe
+  def developer(dev: Developer) =
+    dev.url match {
+      case None =>
+        <developer>
+          <id>dev.id</id>
+          <name>dev.name</name>
+        </developer>
+      case Some(url) =>
+        <developer>
+          <id>dev.id</id>
+          <name>dev.name</name>
+          <url>url</url>
+        </developer>
+    }
 }
