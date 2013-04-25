@@ -24,6 +24,7 @@ object OssSonatype {
     , pomIncludeRepository := { _ => false }
     , homepage := Some(url(site))
     , useGpg := true
+    , licenses := Seq(license.name -> url(license.url))
     , pomExtra := (
       <scm>
         <url>{ git }</url>
