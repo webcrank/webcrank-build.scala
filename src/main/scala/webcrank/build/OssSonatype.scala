@@ -31,16 +31,13 @@ object OssSonatype {
       </scm>
       <developers>
         {
-          devs.map(dev =>
-            <developer>
-              <id>dev.id</id>
-              <name>dev.name</name>
-              { dev.url.map(u => <url>{ u }</url>) }
-            </developer>
-          )
+          <developer>
+          <id>dev.id</id>
+          <name>dev.name</name>
+          dev.url.map(u => <url>{ u }</url>).getOrElse("")
+          </developer>
         }
       </developers>
     )
   )
-
 }
